@@ -18,6 +18,6 @@ class Product extends Model
 
     public function image()
     {
-        return $this->belongsTo(TemporaryUploadImage::class);
+        return $this->belongsTo(TemporaryUploadImage::class,'images_id','id');
     }
 }

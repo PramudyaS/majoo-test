@@ -35,9 +35,7 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function(){
 });
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',\App\Http\Controllers\LandingPageController::class)->name('landing_page');
 
 
 
