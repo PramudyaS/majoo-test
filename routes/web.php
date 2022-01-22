@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth;
+use App\Http\Controllers\ProductCategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,13 +21,15 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function(){
     Route::get('login',[Auth\LoginController::class,'showLoginForm'])->name('login_form');
     Route::post('logout',[Auth\LoginController::class,'logout'])->name('logout');
 
-    Route::get('/',function(){
-       return view('layouts.layout');
-    })->name('dashboard')->middleware('auth');
 
-    Route::group(['prefix'=>'product','as'=>'product','middleware'=>'auth'],function(){
+   Route::group(['middleware'=>'auth'],function(){
+       Route::get('/',function(){
+           return view('layouts.layout');
+       })->name('dashboard');
 
-    });
+       Route::resource('product_category',ProductCategory\ProductCategoryController::class);
+   });
+
 });
 
 
