@@ -20,4 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['prefix'=>'v1'],function(){
    Route::get('product_category/{id}',\App\Http\Controllers\API\ProductCategory\GetProductCategory::class)->name('api.product_category.show');
+   Route::post('upload_image',\App\Http\Controllers\API\Upload\UploadImageController::class)->name('api.upload_image');
 });

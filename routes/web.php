@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth;
 use App\Http\Controllers\ProductCategory;
+use App\Http\Controllers\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function(){
        })->name('dashboard');
 
        Route::resource('product_category',ProductCategory\ProductCategoryController::class);
+       Route::resource('product',Product\ProductController::class);
    });
 
 });
